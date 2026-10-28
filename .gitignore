@@ -1,2 +1,6 @@
-# Ignore sensitive configuration files containing API keys
-# config.js is kept in repo template with placeholder, but if you put real keys, do not push real keys
+# Protect local API key config from being leaked to GitHub
+config.js
+
+# OS / Editor files
+.DS_Store
+Thumbs.db
