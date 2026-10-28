@@ -188,6 +188,32 @@ body {
   box-shadow: 0 8px 25px rgba(56, 189, 248, 0.35);
 }
 
+.btn-ai {
+  background: rgba(56, 189, 248, 0.12);
+  color: var(--accent-cyan);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+}
+
+.btn-ai:hover {
+  background: var(--accent-cyan);
+  color: #0b0f19;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(56, 189, 248, 0.3);
+}
+
+.nav-ai-pill {
+  color: var(--accent-cyan) !important;
+  font-weight: 600 !important;
+  padding: 0.3rem 0.75rem;
+  border-radius: 6px;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.nav-ai-pill:hover {
+  background: rgba(56, 189, 248, 0.18) !important;
+}
+
 .btn-secondary {
   background: rgba(255, 255, 255, 0.05);
   color: var(--text-primary);

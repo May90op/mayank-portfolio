@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Assistant | Mayank Singhal</title>
+  <meta name="description" content="AI Assistant for Mayank Singhal's portfolio." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="chatbot.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    .chatbot-page-wrapper {
+      min-height: calc(100vh - 160px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1rem;
+    }
+    .chatbot-page-wrapper .ai-chat-card {
+      width: 100%;
+      max-width: 800px;
+    }
+    .back-nav {
+      margin-bottom: 1.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--accent-cyan);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+    .back-nav:hover {
+      transform: translateX(-4px);
+      color: var(--text-primary);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand">MS<span>.</span></a>
+      <nav class="nav-links">
+        <a href="index.html#about">About</a>
+        <a href="index.html#education">Education</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="chatbot.html" style="color: var(--accent-cyan); font-weight: 700;">AI Chatbot</a>
+        <a href="index.html#contact" class="btn-contact-nav">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Dedicated Chatbot Container -->
+  <main class="chatbot-page-wrapper">
+    <div class="container">
+      <a href="index.html" class="back-nav">&larr; Back to Portfolio</a>
+      
+      <div class="ai-chat-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+          <h3>🤖 Ask My AI Assistant</h3>
+          <span style="font-size: 0.8rem; background: rgba(56, 189, 248, 0.15); color: var(--accent-cyan); padding: 0.25rem 0.75rem; border-radius: 9999px; font-weight: 600;">Groq LLM Powered</span>
+        </div>
+        <p class="chat-subtitle">
+          Ask questions about Mayank's B.Tech degree at JECRC University, projects, technical skills, or web development.
+        </p>
+
+        <div id="chatMessages" aria-live="polite"></div>
+
+        <div class="chat-controls">
+          <input
+            type="text"
+            id="userInput"
+            placeholder="Ask something (e.g. 'Tell me about Mayank's projects' or 'What skills does he have?')..."
+          />
+          <button id="sendButton" type="button">
+            Send
+          </button>
+        </div>
+
+        <p id="chatStatus" role="status"></p>
+
+        <p class="chat-note">
+          ⚡ Connected via Groq API. Available for demonstration purposes using <code>config.js</code>.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>&copy; 2026 Mayank Singhal. All rights reserved.</p>
+      <p>Built with ❤️ at JECRC University</p>
+    </div>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="chatbot.js"></script>
+</body>
+</html>
