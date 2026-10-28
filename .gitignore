@@ -1,0 +1,2 @@
+# Ignore sensitive configuration files containing API keys
+# config.js is kept in repo template with placeholder, but if you put real keys, do not push real keys

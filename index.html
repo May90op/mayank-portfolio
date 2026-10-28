@@ -6,6 +6,7 @@
   <title>Mayank Singhal | Portfolio</title>
   <meta name="description" content="Portfolio of Mayank Singhal, B.Tech student at JECRC University." />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="chatbot.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -20,6 +21,7 @@
         <a href="#education">Education</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
+        <a href="#aiChatSection">AI Assistant</a>
         <a href="#contact" class="btn-contact-nav">Contact</a>
       </nav>
     </div>
@@ -219,6 +221,41 @@
     </div>
   </section>
 
+  <!-- AI Chatbot Section -->
+  <section id="aiChatSection" class="section section-dark ai-chat-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Interactive AI</span>
+        <h2 class="section-title">Ask My AI Assistant</h2>
+      </div>
+      <div class="ai-chat-card">
+        <h3>Chat with Portfolio AI</h3>
+        <p class="chat-subtitle">
+          Ask questions about my B.Tech studies at JECRC University, projects, skills, or web technologies.
+        </p>
+
+        <div id="chatMessages" aria-live="polite"></div>
+
+        <div class="chat-controls">
+          <input
+            type="text"
+            id="userInput"
+            placeholder="Ask a question about Mayank or his projects..."
+          />
+          <button id="sendButton" type="button">
+            Send
+          </button>
+        </div>
+
+        <p id="chatStatus" role="status"></p>
+
+        <p class="chat-note">
+          ⚡ Powered by Groq LLM API. AI chat is available during local classroom demonstrations using <code>config.js</code>.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- Contact Section -->
   <section id="contact" class="section">
     <div class="container">
@@ -246,6 +283,8 @@
     </div>
   </footer>
 
+  <script src="config.js"></script>
+  <script src="chatbot.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
