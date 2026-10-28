@@ -25,16 +25,49 @@ if (chatMessages && chatMessages.children.length === 0) {
   showChatMessage("assistant", "Hello! I am Mayank's AI assistant. Ask me questions about Mayank's studies at JECRC University, web development skills, or projects!");
 }
 
-// Check if local configuration is present
-const hasApiKey = typeof CONFIG !== "undefined" && CONFIG.apiKey && CONFIG.apiKey !== "YOUR_PRIVATE_GROQ_KEY";
-
-if (!hasApiKey && chatButton && chatStatus) {
-  chatButton.disabled = true;
-  chatStatus.textContent = "AI chat requires a Groq API key in config.js (classroom demonstration mode).";
+// Check if local configuration is present or stored in sessionStorage
+const savedKey = sessionStorage.getItem("groq_api_key");
+if (savedKey && typeof CONFIG !== "undefined") {
+  CONFIG.apiKey = savedKey;
 }
 
+const hasApiKey = () => {
+  return typeof CONFIG !== "undefined" && 
+         CONFIG.apiKey && 
+         CONFIG.apiKey !== "YOUR_PRIVATE_GROQ_KEY";
+};
+
+function updateChatbotUI() {
+  if (!chatButton || !chatStatus) return;
+  
+  if (hasApiKey()) {
+    chatButton.disabled = false;
+    chatStatus.textContent = "";
+  } else {
+    chatButton.disabled = true;
+    chatStatus.innerHTML = 'API key required. <a href="#" id="enterKeyLink" style="color:var(--accent-cyan); text-decoration:underline;">Click here to enter your Groq API key</a>';
+    
+    const link = document.getElementById("enterKeyLink");
+    if (link) {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const key = prompt("Enter your Groq API Key (starts with gsk_):");
+        if (key && key.trim()) {
+          sessionStorage.setItem("groq_api_key", key.trim());
+          if (typeof CONFIG !== "undefined") {
+            CONFIG.apiKey = key.trim();
+          }
+          updateChatbotUI();
+        }
+      });
+    }
+  }
+}
+
+updateChatbotUI();
+
 async function sendChatMessage() {
-  if (!chatButton || chatButton.disabled) return;
+  if (!chatButton || chatButton.disabled || !hasApiKey()) return;
 
   const question = chatInput.value.trim();
 
@@ -117,7 +150,7 @@ async function sendChatMessage() {
       );
     }
   } finally {
-    if (hasApiKey) {
+    if (hasApiKey()) {
       chatButton.disabled = false;
       chatStatus.textContent = "";
     }
