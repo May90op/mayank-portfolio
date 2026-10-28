@@ -57,7 +57,7 @@ async function sendChatMessage() {
           "Authorization": "Bearer " + CONFIG.apiKey
         },
         body: JSON.stringify({
-          model: CONFIG.model || "llama-3.3-70b-versatile",
+          model: CONFIG.model || "openai/gpt-oss-20b",
           temperature: chatTemperature,
           messages: [
             {
